@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Credit Card Number Generator</title>
+	<link rel="stylesheet" type="text/css" href="css/card.css">
+	
+	<script src="js/angular.min.js"></script>
+	
+	<script type="text/javascript">
+		var app = angular.module("cardApp", []);
+		
+		app.controller("CardCtrl", function($scope, $http) {
+			$scope.generate = function() {
+				$http.get('generate/' + $scope.card.type)
+					.success(function(data) {
+						$scope.card.value = data.value.match(/(\d{4})/g).join(" ");
+					})
+			}
+		});
+	</script>
+	
+</head>
+
+<body ng-app="cardApp" ng-controller="CardCtrl">
+	
+	<div class="main">
+		
+		<div class="title">
+			<span>Credit Card Number Generator</span>
+		</div>
+		
+		<form name="cardForm" ng-submit="generate()">
+			<div class="field">
+				<span class="label">Card Type</span>
+				<select ng-model="card.type" ng-init="card.type='VI'" ng-change="generate()" class="select">
+					<option value="VI">Visa</option>
+					<option value="MA">MasterCard</option>
+					<option value="AM">American Express</option>
+				</select>
+			</div>
+			
+			<div class="field">
+				<span class="label">Card Number</span>
+				<input type="text" ng-model='card.value' class="text">
+			</div>
+			
+			<div class="field">
+				<input type="submit" value="Generate" class="submit">
+			</div>
+		</form>
+		
+	</div>
+    
+</body>
+
+</html>

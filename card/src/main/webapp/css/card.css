@@ -1,0 +1,42 @@
+.main {
+	width: 290px;
+	height: 140px;
+	margin: 20px auto 20px auto;
+	padding: 20px;
+	background-color: azure;
+	font-size: 11pt;
+	border: solid green 1px;
+	border-radius: 10px;
+}
+
+.title {
+	margin: 0px auto 20px auto;
+	font-size: 14pt;
+	text-align: center;
+}
+
+.field {
+	height: 30px;
+}
+
+.label {
+	width: 100px;
+	display: inline-block;
+}
+
+.select {
+	width: 185px;
+	font-size: 12pt;
+}
+
+.text {
+	width: 185px;
+	font-size: 11pt;
+}
+
+.submit {
+	display: block;
+	margin: 10px auto;
+	width: 100px;
+	font-size: 12pt;
+}
